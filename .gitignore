@@ -1,0 +1,12 @@
+.DS_Store
+/.vscode/
+/*.zip
+
+# docker setup
+Dockerfile
+docker-compose.yml
+
+node_modules/
+package-lock.json
+
+dist/
