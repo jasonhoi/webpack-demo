@@ -5,9 +5,14 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 module.exports = {
   context: '/private/var/www/webpack-demo',
   entry: './src/index.js',
+  output: {
+    clean: true,
+    path: path.resolve(__dirname, 'dist'),
+    // assetModuleFilename: 'assets/static/[hash][ext][query]',
+  },
   plugins: [
     new HtmlWebpackPlugin({
-      title: 'Webpack 5 App',
+      title: 'Webpack app',
       template: './src/index.template.html',
     }),
     new MiniCssExtractPlugin({
@@ -29,6 +34,28 @@ module.exports = {
           'css-loader',
           'sass-loader',
         ],
+      },
+      {
+        test: /\.html$/i,
+        loader: 'html-loader',
+        options: {
+          minimize: false,
+        },
+      },
+      {
+        test: /\.svg/i,
+        type: 'asset/inline',
+      },
+      {
+        test: /\.(png|jpg|jpeg|gif|webp|mp4)/i,
+        type: 'asset/resource',
+        generator: {
+          filename: 'assets/static/[name].[hash][ext][query]',
+        },
+      },
+      {
+        test: /\.(woff|woff2|eot|ttf|otf)$/i,
+        type: 'asset/resource',
       },
     ],
   },
