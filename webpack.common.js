@@ -8,7 +8,6 @@ module.exports = {
   output: {
     clean: true,
     path: path.resolve(__dirname, 'dist'),
-    // assetModuleFilename: 'assets/static/[hash][ext][query]',
   },
   plugins: [
     new HtmlWebpackPlugin({
@@ -38,24 +37,24 @@ module.exports = {
       {
         test: /\.html$/i,
         loader: 'html-loader',
-        options: {
-          minimize: false,
-        },
       },
       {
         test: /\.svg/i,
         type: 'asset/inline',
       },
       {
-        test: /\.(png|jpg|jpeg|gif|webp|mp4)/i,
+        test: /\.(png|jpg|jpeg|gif|webp|mp4|woff|woff2|eot|ttf|otf|css)/i,
         type: 'asset/resource',
         generator: {
           filename: 'assets/static/[name].[hash][ext][query]',
         },
       },
       {
-        test: /\.(woff|woff2|eot|ttf|otf)$/i,
+        test: /\.(css)$/i,
         type: 'asset/resource',
+        generator: {
+          filename: 'assets/css/[name].[hash][ext][query]',
+        },
       },
     ],
   },
