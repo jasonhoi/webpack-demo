@@ -1,22 +1,24 @@
-class AlertService {
-  constructor() {
-    this.errorBox = document.getElementById("error");
-  }
+import { inputAreValid } from "./utils/inputs-are-valid";
 
-  handleAdditionError(inputs, numbers) {
-    const fullMessage = inputs.reduce((message, str, index) => {
-      if (inputsAreValid(numbers[index])) {
-        return message + "";
-      } else {
-        return message + `${str} is not a number. `;
-      }
-    }, "Please enter two valid numbers! ");
+export class AlertService {
+    constructor() {
+        this.errorBox = document.getElementById("error");
+    }
 
-    this.errorBox.classList.remove("invisible");
-    this.errorBox.innerText = fullMessage;
-  }
+    handleAdditionError(inputs, numbers) {
+        const fullMessage = inputs.reduce((message, str, index) => {
+            if (inputsAreValid(numbers[index])) {
+                return message + "";
+            } else {
+                return message + `${str} is not a number. `;
+            }
+        }, "Please enter two valid numbers! ");
 
-  hideErrors() {
-    this.errorBox.classList.add("invisible");
-  }
+        this.errorBox.classList.remove("invisible");
+        this.errorBox.innerText = fullMessage;
+    }
+
+    hideErrors() {
+        this.errorBox.classList.add("invisible");
+    }
 }
