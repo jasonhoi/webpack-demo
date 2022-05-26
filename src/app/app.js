@@ -8,7 +8,7 @@ const run = (alertService, componentService) => {
         const inputs = componentService.getInputs();
         const parsedInputs = parseInputs(...inputs);
         if (inputsAreValid(...parsedInputs)) {
-            const [numA, numB] = parseInputs;
+            const [numA, numB] = parsedInputs;
             componentService.setResult(numA + numB);
         } else {
             componentService.setResult("");
@@ -16,3 +16,4 @@ const run = (alertService, componentService) => {
         }
     });
 };
+run(alertService, componentService);
