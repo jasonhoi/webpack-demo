@@ -17,7 +17,7 @@ module.exports = {
       template: './src/index.template.html',
     }),
     new MiniCssExtractPlugin({
-      filename: 'assets/css/[name].[contentHash].css',
+      filename: 'assets/css/[name].[contenthash].css',
     }),
   ],
   module: {
@@ -25,7 +25,6 @@ module.exports = {
       {
         test: /\.s[ac]ss$/i,
         use: [
-          'style-loader',
           {
             loader: MiniCssExtractPlugin.loader,
             options: {
