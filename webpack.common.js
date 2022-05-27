@@ -19,6 +19,7 @@ module.exports = {
     port: 9000,
     hot: false,
     liveReload: true,
+    open: true,
   },
   plugins: [
     new HtmlWebpackPlugin({
@@ -31,6 +32,16 @@ module.exports = {
   ],
   module: {
     rules: [
+      {
+        test: /\.m?js$/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: ['@babel/preset-env'],
+          },
+        },
+      },
       {
         test: /\.s[ac]ss$/i,
         use: [
