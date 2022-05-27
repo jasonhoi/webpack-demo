@@ -17,7 +17,7 @@ module.exports = {
       template: './src/index.template.html',
     }),
     new MiniCssExtractPlugin({
-      filename: 'assets/css/[name].[contenthash].css',
+      filename: 'assets/css/[name].[contentHash].css',
     }),
   ],
   module: {
