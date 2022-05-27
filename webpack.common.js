@@ -65,7 +65,7 @@ module.exports = {
         type: 'asset/inline',
       },
       {
-        test: /\.(png|jpg|jpeg|gif|webp|mp4|woff|woff2|eot|ttf|otf|css)/i,
+        test: /\.(png|jpg|jpeg|gif|webp|mp4|woff|woff2|eot|ttf|otf|css|mp3|webmanifest)/i,
         type: 'asset/resource',
         generator: {
           filename: 'assets/static/[name].[hash][ext][query]',
