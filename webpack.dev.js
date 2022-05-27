@@ -4,7 +4,7 @@ const { merge } = require('webpack-merge');
 module.exports = merge(common, {
   mode: 'development',
   output: {
-    filename: 'assets/js/app.js',
+    filename: 'assets/js/[name].js',
   },
   optimization: {
     emitOnErrors: true,
